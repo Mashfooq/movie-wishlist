@@ -28,3 +28,6 @@ Create a React appliction for backend
         - nodemon: npm install nodemon --save-dev
         - cors: npm install cors --save-dev
         - cookie-parser: npm install cookie-parser --save-dev
+
+    Create database connection by impoting the following:
+        - pg: npm install pg --save-dev
