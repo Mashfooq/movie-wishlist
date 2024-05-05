@@ -1,0 +1,22 @@
+Create a `docker-compose.yml` file
+
+    Add services db and pdadmin4
+        - PG Admin login email : admin@gmail.com
+        - PG Admin login password : root
+    Create server and connection in PGAdmin
+        - Server Name : MOVIE-WISHLIST
+        - connection
+            - HOST : {Add your IP Address}
+            - PORT : 5432
+            - Maintanance database : Postgres
+            - Username : postgres
+            - Password : root
+    
+    Access pgamin via
+        - http://localhost:8080
+
+Create a React appliction for backend
+    Run the following command to create an application
+        - npm create vite@latest
+    Create an application
+        - Project Name: backend
