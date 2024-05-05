@@ -20,3 +20,11 @@ Create a React appliction for backend
         - npm create vite@latest
     Create an application
         - Project Name: backend
+    
+    install the following package for backend
+        - express: npm install expres
+        - dotenv: npm install dotenv
+        - jsx: npm install jsx --save-dev
+        - nodemon: npm install nodemon --save-dev
+        - cors: npm install cors --save-dev
+        - cookie-parser: npm install cookie-parser --save-dev

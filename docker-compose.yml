@@ -28,43 +28,43 @@ services:
     tty: true
     # depends_on:
     #   - db
-    networks:
-      - PERN-networks
+    # networks:
+    #   - PERN-networks
 
-  db:
-    image: postgres
-    restart: always
-    container_name: services-db
-    environment:
-      POSTGRES_PASSWORD: root
-      PGDATA: /var/lib/postgresql/data/
-    volumes:
-      - 'application-data:/var/lib/postgresql/data'
-    ports:
-      - "5432:5432"
-    networks:
-      - PERN-networks
+#   db:
+#     image: postgres
+#     restart: always
+#     container_name: services-db
+#     environment:
+#       POSTGRES_PASSWORD: root
+#       PGDATA: /var/lib/postgresql/data/
+#     volumes:
+#       - 'application-data:/var/lib/postgresql/data'
+#     ports:
+#       - "5432:5432"
+#     networks:
+#       - PERN-networks
 
-  pgadmin:
-    image: dpage/pgadmin4
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: root
-    ports:
-      - "8080:80"
-    volumes:
-      - 'pgadmin-data:/var/lib/pgadmin'
-    depends_on:
-      - db
-    networks:
-      - PERN-networks
+#   pgadmin:
+#     image: dpage/pgadmin4
+#     restart: always
+#     environment:
+#       PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+#       PGADMIN_DEFAULT_PASSWORD: root
+#     ports:
+#       - "8080:80"
+#     volumes:
+#       - 'pgadmin-data:/var/lib/pgadmin'
+#     depends_on:
+#       - db
+#     networks:
+#       - PERN-networks
 
-networks:
-  PERN-networks:
-    driver: bridge
+# networks:
+#   PERN-networks:
+#     driver: bridge
 
-volumes:
-  application-data:
-  pgadmin-data:
+# volumes:
+#   application-data:
+#   pgadmin-data:
     
