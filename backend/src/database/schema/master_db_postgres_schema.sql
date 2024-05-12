@@ -13,26 +13,25 @@ CREATE INDEX username_idx ON users (username);
 CREATE INDEX full_name_idx ON users (full_name);
 CREATE INDEX email_idx ON users (email);
 
--- Define the enum type
-CREATE TYPE movie_type AS ENUM ('movie', 'series', 'episode');
-
-CREATE TABLE movies (
-  id SERIAL PRIMARY KEY,
-  imdb_ID VARCHAR(255) UNIQUE NOT NULL,
-  type movie_type,
-  title VARCHAR(255) NOT NULL,
-  year VARCHAR(255) NOT NULL,
-  full_response JSON NOT NULL
+CREATE TABLE movie_data (
+    id SERIAL PRIMARY KEY,
+    movie_id INTEGER UNIQUE NOT NULL,
+    adult BOOLEAN,
+    genre_ids INTEGER[],
+    original_language VARCHAR(10),
+    title VARCHAR(255) NOT NULL,
+    original_title VARCHAR(255),
+    overview TEXT,
+    popularity NUMERIC(10,3),
+    backdrop_path VARCHAR(255),
+    poster_path VARCHAR(255),
+    release_date DATE,
+    video BOOLEAN,
+    vote_average NUMERIC(5,3),
+    vote_count INTEGER,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
 );
 
--- Create an index for the imdb_ID column
-CREATE INDEX idx_imdb_id ON movies (imdb_ID);
-
--- Create an index for the title column
-CREATE INDEX idx_movie_title ON movies (title);
-
--- Create an index for the title and year column
-CREATE INDEX idx_movie_title_year ON movies (title, year);
-
--- Create an index for the id and year column
-CREATE INDEX idx_movie_id_year ON movies (id, year);
+CREATE INDEX idx_title ON movie_data (title);
+CREATE INDEX idx_movie_id ON movie_data (movie_id);
