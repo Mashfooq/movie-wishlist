@@ -31,3 +31,7 @@ Create a React appliction for backend
 
     Create database connection by impoting the following:
         - pg: npm install pg --save-dev
+
+Create Model
+    - Users
+    - Movie data
