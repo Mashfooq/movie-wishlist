@@ -19,10 +19,12 @@ app.use(cookieParser());
 import healthcheckRouter from "../routes/healthcheck.routes.js";
 import userRouter from "../routes/user.routes.js";
 import movieRouter from "../routes/movie.routes.js";
+import externalApi from "../routes/extrenalapi.routes.js";
 
 // routes declaration
 app.use("/api/v1/healthcheck", healthcheckRouter)
 app.use("/api/v1/user", userRouter)
 app.use("/api/v1/movie", movieRouter)
+app.use("/api/v1/extrenalapi", externalApi)
 
 export { app }

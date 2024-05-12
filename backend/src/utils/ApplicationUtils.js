@@ -73,6 +73,35 @@ const generateRefreshToken = (userId) => {
     )
 }
 
+const getExternalApiAuthorizationKey = () => {
+    // Check if authorization key exists.
+    if (!process.env.TMDB_AUTHORIZATION_KEY) {
+        return null;
+    }
+
+    // Prepare an authorization key
+    return 'Bearer ' + process.env.TMDB_AUTHORIZATION_KEY;
+}
+
+const getExternalApiDomain = () => {
+    // Check if domain exists.
+    if (!process.env.EXTERNAL_API_DOMAIN) {
+        return null;
+    }
+
+    return process.env.EXTERNAL_API_DOMAIN;
+}
+
+const getExternalApiVersion = () => {
+    // Check if domain exists.
+    if (!process.env.EXTERNAL_API_VERSION) {
+        return null;
+    }
+
+    return process.env.EXTERNAL_API_VERSION;
+}
+
+
 export {
     excludeSensitiveInfo,
     bcryptPassword,
@@ -80,5 +109,8 @@ export {
     httpOnlyAndSecureOption,
     generateAccessAndRefereshTokens,
     generateAccessToken,
-    generateRefreshToken
+    generateRefreshToken,
+    getExternalApiAuthorizationKey,
+    getExternalApiDomain,
+    getExternalApiVersion
 }

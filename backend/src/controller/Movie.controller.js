@@ -9,7 +9,7 @@ const saveMovie = asyncHandler(async (req, res) => {
     const { movie_id, title } = req.body;
 
     if (!movie_id || !title || title.trim() === '') {
-        return res.json(new ApiError(400, "Essential: movie id and title❗"));
+        return res.json(new ApiErrors(400, "Essential: movie id and title❗"));
     }
 
     const moviesDetail = await MovieData.findOne({ where: { movie_id: movie_id } });
