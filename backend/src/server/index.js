@@ -9,4 +9,4 @@ dotenv.config({
 // Connect to the database
 testDatabaseConnection();
 
-app.listen(process.env.PORT ?? 3002, () => console.log('Server started'));
+app.listen(process.env.PORT ?? 3002, () => console.log('Backend Server started'));

@@ -35,3 +35,15 @@ CREATE TABLE movie_data (
 
 CREATE INDEX idx_title ON movie_data (title);
 CREATE INDEX idx_movie_id ON movie_data (movie_id);
+
+CREATE TABLE wishlist (
+    id SERIAL PRIMARY KEY,
+    movie_data_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+    FOREIGN KEY (movie_data_id) REFERENCES movie_data(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+)
+
+CREATE INDEX idx_movie_user_id ON wishlist (movie_data_id, user_id);
